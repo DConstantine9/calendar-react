@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
+import EventList from './EventList';
 
 export default function EventHandler() {
   let [value, setValue] = useState("");
-  let [plan, setPlan] = useState([]);
+  let [events, setEvents] = useState([]);
 
-  let addPlan = () => {
-    setPlan([...plan, value])
+  let addEvent = () => {
+    let newEvent = {
+      id: Date.now(),
+      value
+    }
+    setEvents([...events, newEvent])
+    setValue("")
     console.log(value)
-    console.log(plan)
+    console.log(events)
+  }
+
+  let removeEvent = (event) => {
+    setEvents(events.filter(e => e.id !== event.id))
   }
 
   return (
@@ -18,14 +28,10 @@ export default function EventHandler() {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <button onClick={addPlan}>add</button>
+      <button onClick={addEvent}>add</button>
 
       <div className='eventhandler__content'>
-        {plan.map((e) => (
-          <div key={Date.now()}>
-            {e}
-          </div>
-        ))}
+        <EventList remove={removeEvent} events={events} />
       </div>
     </div>
   )

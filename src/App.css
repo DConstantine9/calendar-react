@@ -4,10 +4,13 @@
 }
 
 .App {
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+input {
+  outline: none;
 }
 
 .eventhandler {
@@ -23,5 +26,18 @@
 
 .eventhandler__content {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
+}
+
+.single__event {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single__event:hover {
+  background: rgb(214, 212, 212);
 }
