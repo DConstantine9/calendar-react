@@ -23,12 +23,16 @@ export default function EventHandler() {
   return (
     <div className='eventhandler'>
       <h3>events</h3>
-      <input 
+      <div className='input__field'>
+        <input 
         type="text"
+        className='my__input'
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <button onClick={addEvent}>add</button>
+        <button className='my__button' onClick={addEvent}>add</button>
+      </div>
+      
 
       <div className='eventhandler__content'>
         <EventList remove={removeEvent} events={events} />
