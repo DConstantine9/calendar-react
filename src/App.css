@@ -94,13 +94,6 @@ h3 {
   align-items: flex-start;
 }
 
-.my__input {
-  border-radius: 50px;
-  border: 2px solid grey;
-  padding: 5px 10px ;
-  margin: 0 10px 5px 0;
-}
-
 .my__input:focus {
   border-color: black;
 }
