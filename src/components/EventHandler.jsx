@@ -5,13 +5,15 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons"
 import ModalWindow from './ModalWindow/ModalWindow';
 import AddForm from './AddForm';
 
-export default function EventHandler({dateValue, onChange}) {
+export default function EventHandler({dateValue}) {
   let [value, setValue] = useState("");
   let [events, setEvents] = useState([]);
   let [modal, setModal] = useState(false)
   let [startTime, setStartTime] = useState("")
   let [endTime, setEndTime] = useState("")
-  let [date, setDate] = useState(dateValue)
+  let [date, setDate] = useState(dateValue.toDateString())
+
+  console.log(dateValue.toDateString())
 
   let addEvent = () => {
     let newEvent = {
@@ -21,14 +23,13 @@ export default function EventHandler({dateValue, onChange}) {
       endTime,
       date
     }
-    
-    setDate(date__input.value.toDateString())
+
+    setDate(dateValue.toDateString())
     setEvents([...events, newEvent])
     setValue("")
+    setStartTime("")
+    setEndTime("")
     setModal(false)
-    
-    console.log(date)
-
   }
 
   let removeEvent = (event) => {

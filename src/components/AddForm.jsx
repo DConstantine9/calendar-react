@@ -12,25 +12,17 @@ export default function AddForm({value, setValue, addEvent, startTime, setStartT
         onChange={e => setValue(e.target.value)}
       />
 
-      {/* <input 
-        name='date_input'
-        type="text"
-        className='date__input'
-        value={date}
-        onChange={e => setDate(e.target.value)}
-      />
- */}
       <div className='form__time'>
         <input 
           type="time" 
           value={startTime}
           onChange={e => setStartTime(e.target.value)}
-          />
+        />
         <input 
           type="time" 
           value={endTime}
           onChange={e => setEndTime(e.target.value)}
-          />
+        />
       </div>
 
       <button className='my__button' onClick={addEvent}>

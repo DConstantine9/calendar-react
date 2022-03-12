@@ -11,7 +11,7 @@ export default function EventItem(props) {
       <div className='eventInfo'>
       <div className='eventName'>{props.e.value}</div>
         <div className='eventDate'>
-          <FontAwesomeIcon className='icon time' icon={faCalendarDays} /> {props.date}
+          <FontAwesomeIcon className='icon time' icon={faCalendarDays} /> {props.e.date}
         </div>
         <div className='eventTime'>
           <FontAwesomeIcon className='icon time' icon={faClock} />{props.e.startTime} - {props.e.endTime}

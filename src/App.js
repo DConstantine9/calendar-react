@@ -7,14 +7,10 @@ import EventHandler from './components/EventHandler';
 function App() {
   const [value, onChange] = useState(new Date());
 
-  function onClickDay(value, e) {
-    console.log(value)
-  }
-
   return (
     <div className="App">
       <Calendar onChange={onChange} value={value} />
-      <EventHandler onClickDay={onClickDay} dateValue={value} onChange={onChange} />
+      <EventHandler dateValue={value} />
     </div>
   );
 }
