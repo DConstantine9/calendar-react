@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import EventList from './EventList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus} from "@fortawesome/free-solid-svg-icons"
@@ -13,7 +13,9 @@ export default function EventHandler({dateValue}) {
   let [endTime, setEndTime] = useState("")
   let [date, setDate] = useState(dateValue.toDateString())
 
-  console.log(dateValue.toDateString())
+  useEffect(() => {
+    setDate(dateValue.toDateString())
+  }, [dateValue])
 
   let addEvent = () => {
     let newEvent = {
@@ -24,7 +26,6 @@ export default function EventHandler({dateValue}) {
       date
     }
 
-    setDate(dateValue.toDateString())
     setEvents([...events, newEvent])
     setValue("")
     setStartTime("")
