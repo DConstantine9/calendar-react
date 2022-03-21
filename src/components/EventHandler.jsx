@@ -12,12 +12,30 @@ export default function EventHandler({dateValue}) {
   let [startTime, setStartTime] = useState("")
   let [endTime, setEndTime] = useState("")
   let [date, setDate] = useState(dateValue.toDateString())
+  let [styles, setStyles] = useState("") 
+  let today = new Date()
+  today.setHours(0, 0, 0, 0)
+  
+ /*  let store = localStorage.setItem("events", JSON.stringify(events))
+  console.log(store) */
 
   useEffect(() => {
     setDate(dateValue.toDateString())
   }, [dateValue])
 
   let addEvent = () => {
+      
+    if (dateValue < today) {
+      setStyles("visible")
+    } else if (dateValue >= today) {
+      setStyles("")
+      
+    }
+
+    if (value == "") {
+      value = "New Event"
+    }
+
     let newEvent = {
       id: Date.now(),
       value,
@@ -48,7 +66,7 @@ export default function EventHandler({dateValue}) {
       </div>
       <div className='eventhandler__content'>
       <EventList remove={removeEvent} events={events} date={date} />
-      <ModalWindow visible={modal} setVisible={setModal}>
+      <ModalWindow visible={modal} setVisible={setModal} >
         <AddForm
           dateValue={dateValue} 
           value={value} 
@@ -60,6 +78,7 @@ export default function EventHandler({dateValue}) {
           endTime={endTime} 
           date={date}
           setDate={setDate}
+          styles={styles}
         />
       </ModalWindow>
       </div>

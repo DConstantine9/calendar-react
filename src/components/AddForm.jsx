@@ -1,7 +1,8 @@
 import React from 'react';
 import "../styles/AddForm.css"
 
-export default function AddForm({value, setValue, addEvent, startTime, setStartTime, endTime, setEndTime, date, setDate}) {
+export default function AddForm({value, setValue, addEvent, startTime, setStartTime, endTime, setEndTime, styles}) {
+  console.log(styles)
   return (
     <div className='form__container'>
       <input 
@@ -11,6 +12,8 @@ export default function AddForm({value, setValue, addEvent, startTime, setStartT
         placeholder="What's your plan?"
         onChange={e => setValue(e.target.value)}
       />
+
+      <span className={styles}>You can't set an ivent to past date</span>
 
       <div className='form__time'>
         <input 
