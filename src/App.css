@@ -107,3 +107,13 @@ h3 {
   cursor: pointer; 
 }
 
+span {
+  color: red;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+

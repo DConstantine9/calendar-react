@@ -12,9 +12,7 @@ export default function AddForm({value, setValue, addEvent, startTime, setStartT
         placeholder="What's your plan?"
         onChange={e => setValue(e.target.value)}
       />
-
-      <span className={styles}>You can't set an ivent to past date</span>
-
+      
       <div className='form__time'>
         <input 
           type="time" 

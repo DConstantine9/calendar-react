@@ -25,14 +25,7 @@ export default function EventHandler({dateValue}) {
 
   let addEvent = () => {
       
-    if (dateValue < today) {
-      setStyles("visible")
-    } else if (dateValue >= today) {
-      setStyles("")
-      
-    }
-
-    if (value == "") {
+    if (value === "") {
       value = "New Event"
     }
 
@@ -50,6 +43,15 @@ export default function EventHandler({dateValue}) {
     setEndTime("")
     setModal(false)
   }
+  
+  let newEvent = () => {
+    if (dateValue < today) {
+      setStyles("visible")
+    } else if (dateValue >= today) {
+      setStyles("")
+      setModal(true) 
+    }
+  }
 
   let removeEvent = (event) => {
     setEvents(events.filter(e => e.id !== event.id))
@@ -60,9 +62,10 @@ export default function EventHandler({dateValue}) {
       <h3>Events</h3>
       {dateValue.toDateString()}
       <div className='input__field'>  
-        <button className='my__button' onClick={() => setModal(true)}>
+        <button className='my__button' onClick={newEvent}>
           <FontAwesomeIcon icon={faPlus} /> New  
         </button>
+      <span className={styles}>You can't set an ivent to past date</span>
       </div>
       <div className='eventhandler__content'>
       <EventList remove={removeEvent} events={events} date={date} />
