@@ -1,8 +1,7 @@
 import React from 'react';
 import "../styles/AddForm.css"
 
-export default function AddForm({value, setValue, addEvent, startTime, setStartTime, endTime, setEndTime, styles}) {
-  console.log(styles)
+export default function AddForm({value, setValue, addEvent, startTime, setStartTime, endTime, setEndTime}) {
   return (
     <div className='form__container'>
       <input 

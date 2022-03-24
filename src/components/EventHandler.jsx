@@ -16,9 +16,11 @@ export default function EventHandler({dateValue}) {
   let today = new Date()
   today.setHours(0, 0, 0, 0)
   
- /*  let store = localStorage.setItem("events", JSON.stringify(events))
-  console.log(store) */
+  /* localStorage.setItem("events", JSON.stringify(events))
+  let store = localStorage.getItem("events")
+  store = JSON.parse(store) */
 
+ 
   useEffect(() => {
     setDate(dateValue.toDateString())
   }, [dateValue])
@@ -38,6 +40,7 @@ export default function EventHandler({dateValue}) {
     }
 
     setEvents([...events, newEvent])
+    localStorage.setItem(Date.now(), JSON.stringify(newEvent))
     setValue("")
     setStartTime("")
     setEndTime("")
@@ -54,6 +57,7 @@ export default function EventHandler({dateValue}) {
   }
 
   let removeEvent = (event) => {
+    localStorage()
     setEvents(events.filter(e => e.id !== event.id))
   }
 
@@ -81,7 +85,6 @@ export default function EventHandler({dateValue}) {
           endTime={endTime} 
           date={date}
           setDate={setDate}
-          styles={styles}
         />
       </ModalWindow>
       </div>
