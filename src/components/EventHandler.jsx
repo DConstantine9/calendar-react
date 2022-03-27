@@ -20,6 +20,8 @@ export default function EventHandler({dateValue}) {
   let store = localStorage.getItem("events")
   store = JSON.parse(store) */
 
+  console.log(localStorage)
+
  
   useEffect(() => {
     setDate(dateValue.toDateString())
@@ -32,7 +34,7 @@ export default function EventHandler({dateValue}) {
     }
 
     let newEvent = {
-      id: Date.now(),
+      id: Math.random().toString(16).slice(2),
       value,
       startTime,
       endTime,
@@ -40,11 +42,12 @@ export default function EventHandler({dateValue}) {
     }
 
     setEvents([...events, newEvent])
-    localStorage.setItem(Date.now(), JSON.stringify(newEvent))
+    localStorage.setItem(newEvent.id, JSON.stringify(newEvent))
     setValue("")
     setStartTime("")
     setEndTime("")
     setModal(false)
+    
   }
   
   let newEvent = () => {
@@ -57,8 +60,16 @@ export default function EventHandler({dateValue}) {
   }
 
   let removeEvent = (event) => {
-    localStorage()
-    setEvents(events.filter(e => e.id !== event.id))
+    for (let key in localStorage) {
+      if (key === event.id) {
+        console.log(typeof key)
+        console.log(typeof event.id)
+        console.log(key === event.id)
+        localStorage.removeItem(key)
+      }
+      
+    }
+    //setEvents(events.filter(e => e.id !== event.id))
   }
 
   return (

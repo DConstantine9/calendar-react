@@ -6,8 +6,7 @@ import {faClock} from "@fortawesome/free-regular-svg-icons"
 import {faCalendarDays} from "@fortawesome/free-solid-svg-icons"
 
 export default function EventItem(props) {
- console.log(props.e.value)
-
+  console.log(props.e)
   return (
     <div className="single__event">
       <div className='eventInfo'>

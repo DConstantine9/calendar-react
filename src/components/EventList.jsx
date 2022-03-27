@@ -12,9 +12,6 @@ export default function EventList({events, remove, date}) {
 
   arr.splice(-6, 6)
 
-  console.log(arr)
-
-
   return (  
     arr.map((e) => (
       <EventItem date={date} remove={remove} e={e} key={Math.random().toString(16).slice(2)}/>
