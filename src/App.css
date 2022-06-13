@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 input {
@@ -15,7 +16,7 @@ input {
 }
 
 .eventhandler {
-  margin: 30px 0 0 30px;
+  margin: 0 0 0 30px;
   border:2px solid rgb(138, 29, 201);
   border-radius: 10px;;
   width: 350px;
